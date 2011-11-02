@@ -21,7 +21,7 @@ def concordance(s, in_file, out_file):
     "s = string, in_file = file opened for reading, out_file = file opened for writing"
     for i, line in enumerate(in_file):
         if re.search(s, line):
-            print "Found string '%s' on line %d of file' " % (s, i)
+            print "Found string '%s' on line %d of file" % (s, i)
             print >>out_file, "Line %10d:\t%s" % (i, line.rstrip())
     return
 
