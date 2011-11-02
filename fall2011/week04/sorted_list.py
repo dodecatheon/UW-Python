@@ -16,7 +16,7 @@ t = list('zyxwvutsr is the first part of the reversed alphabet')
 def sorted_list(s):
     "sorted_list(s), where s is a list"
 
-    temp = [a for a in s]
+    temp = s[:]
     temp.sort()
     return temp
 
