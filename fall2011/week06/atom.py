@@ -58,7 +58,7 @@ symbol = element symbol, etc.
             print "Second atom has already bonded %d times" % atom.max_bonds
         return None
 
-    def description(self):
+    def __str__(self):
         return ("{\n\tAtom: symbol = " + 
                 self.symbol +
                 "\n\tbonds = " + 
@@ -86,8 +86,8 @@ if __name__ == "__main__":
     o2.add_bond(h1)
     o2.add_bond(h3)
 
-    print "h1 = ", h1.description()
-    print "h2 = ", h2.description()
-    print "h3 = ", h3.description()
-    print "o1 = ", o1.description()
-    print "o2 = ", o2.description()
+    print "h1 = ", h1
+    print "h2 = ", h2
+    print "h3 = ", h3
+    print "o1 = ", o1
+    print "o2 = ", o2
