@@ -55,7 +55,11 @@ string.  I had better include at least one or two little commonalities
 def test_unlisted_words(sample=_s,
                         reference=_r):
     "Run unlisted_words on a small test"
-    print "Words of sample '%s' that are not in the reference string:" % sample
+    sl = len(sample)
+    if sl > 40:
+        sl = 40
+    print "First 40 chars of sample:", sample[:sl]
+    print "Words of sample that are not in the reference string:"
     print unlisted_words(sample, reference)
 
 def big_test(f1='big.txt', f2='words'):
