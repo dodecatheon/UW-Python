@@ -41,6 +41,6 @@ if __name__ == '__main__':
 
     b3 = bag(['b', 'a', 'b', 'a', 'b'])
     b4 = bag(['c', 'b', 'c'])
-    print "b3 = ", b3
-    print "b4 = ", b4
+    print "b3 = bag(['b', 'a', 'b', 'a', 'b']) =", b3
+    print "b4 = bag(['c', 'b', 'c']) =", b4
     print "b3 + b4 =", b3 + b4
