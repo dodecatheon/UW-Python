@@ -1,4 +1,12 @@
-#!/usr/bin/env python
+"""
+Lab on classes, objects, and inheritance
+
+On this sheet, write down the output from each print statement in this module.
+
+If executing the print statement would raise an exception,
+just write ERROR 
+"""
+
 class A(object):
     x = 1
     def __init__(self):
@@ -18,13 +26,14 @@ class D(A):
         self.z = 3
     def f(self):
         return self.z
-
+    
 class E(A):
     def __init__(self):
         A.__init__(self)
         self.q = 5
 
-a, b, c, d, e, = A(), B(), C(), D(), E()
+
+a, b, c, d, e = A(), B(), C(), D(), E()
 
 p = a
 
@@ -50,3 +59,6 @@ print a.x, b.x, p.x
 
 print d.y
 
+
+
+ 
