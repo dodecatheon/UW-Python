@@ -9,6 +9,7 @@ def generator(f):
     def gendec(t):
         for x in t:
             yield f(x)
+        # raise StopIteration not necessary!  t itself raises StopIteration!
     return gendec
 
 if __name__ == "__main__":
