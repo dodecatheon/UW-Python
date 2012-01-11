@@ -20,15 +20,14 @@ if nargs > 1:
 if nargs > 2:
     port = int(sys.argv[2])
 
-s = socket.socket(socket.AF_INET, 
-                  socket.SOCK_STREAM) 
-s.connect((host,port))
-
 prompt = "Enter string to send (hit RET to exit) ==> "
 print prompt,
 send_string = raw_input()
 
-while send_string:
+while send_string != '':
+    s = socket.socket(socket.AF_INET, 
+                      socket.SOCK_STREAM) 
+    s.connect((host,port))
     s.send(send_string) 
     data = s.recv(size) 
     s.close()
