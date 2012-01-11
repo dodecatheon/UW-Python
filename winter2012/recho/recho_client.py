@@ -24,7 +24,7 @@ prompt = "Enter string to send (hit RET to exit) ==> "
 print prompt,
 send_string = raw_input()
 
-while send_string != '':
+while send_string:
     s = socket.socket(socket.AF_INET, 
                       socket.SOCK_STREAM) 
     s.connect((host,port))
