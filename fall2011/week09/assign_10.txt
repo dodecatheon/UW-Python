@@ -1,0 +1,54 @@
+Exercise for week 10, Tues Dec 13, bring exercise to turn in (hardcopy)
+
+Reading: see course web page
+
+Exercise: Find and install a Python package and report your
+experience.  Report these items:
+
+ 1. The name of the package 
+
+    argh (version 0.14.2), a simple argparse wrapper
+
+ 2. Location where you found the package (the URL for the website, the
+ entry in package manager registry, etc.)
+
+    http://pypi.python.org/pypi/argh/0.14.2
+
+ 3. The format of the downloaded package, if any (.msi, .dmg, .tar.gz, ...
+    or 'none' if installation method doesn't use one)
+
+    It is possible to download the package in .tar.gz format, which
+    contains setup.py and egg files, but it is also possible to install
+    directly from pypi.
+
+ 4. The installation program you used (distutils, pip, easy_install,
+     apt, Synaptic, macports ...)
+
+    I used pip:
+
+    * Linux Mint 11 (based on Ubuntu Natty Narwhal).
+
+    * aptitude search pip
+      ==> shows 'python-pip' available but not installed.
+
+    * sudo apt-get install python-pip
+
+    * sudo pip install argh
+
+ 5. Whether the installation was successful 
+
+    Yes:
+
+    $ python
+
+    >>> import argh, argparse
+
+    >>> dir(argh) 
+
+    ['ArghParser', 'CommandError', '__builtins__', '__doc__',
+    '__file__', '__name__', '__package__', '__path__', 'add_commands',
+    'alias', 'arg', 'autocomplete', 'command', 'completion',
+    'confirm', 'constants', 'decorators', 'dispatch', 'exceptions',
+    'helpers', 'plain_signature', 'utils', 'wrap_errors']
+
+ 
