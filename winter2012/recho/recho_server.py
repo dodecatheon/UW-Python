@@ -36,10 +36,8 @@ while True:
     while True:
         data = client.recv(size) 
         if data:
-            client.send('uw-student: %s' % data) 
+            client.send('dodecatheon: %s' % data) 
         else:  # no data, client sent empty message or closed socket
             client.close()
             print 'closed connection'
             break
-
-        
