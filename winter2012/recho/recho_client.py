@@ -15,7 +15,7 @@ import sys
 
 host = 'localhost' 
 port = 50002 # different default port than echo, both can run on same server
-size = 1024 
+size = 8 
 
 nargs = len(sys.argv)
 if nargs > 1:
@@ -32,8 +32,11 @@ while True:
     if msg:         # msg is not empty
         s.send(msg) 
         data = s.recv(size)
+        receive_string = data.split(': ')[1]
         print data
+        print "send matches receive =", msg == receive_string
     else:          # msg is empty
+        print "msg is empty, close and exit ..."
         s.close() 
         break      # exit loop            
 

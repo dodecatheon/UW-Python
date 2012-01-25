@@ -16,7 +16,7 @@ if len(sys.argv) > 1:
     port = int(sys.argv[1])
 
 backlog = 5 
-size = 1024 
+size = 8
 
 # server's listener socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
@@ -30,9 +30,16 @@ s.bind((host,port))
 print 'recho_server listening on port', port
 s.listen(backlog) 
 
+clients = []
 while True: 
     client, address = s.accept()
     print 'accepted connection from ', address
+
+    if client not in clients:
+        clients.append(client)
+
+    print "clients = ", clients
+    
     while True:
         data = client.recv(size) 
         if data:
