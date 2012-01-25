@@ -16,7 +16,7 @@ if len(sys.argv) > 1:
     port = int(sys.argv[1])
 
 backlog = 5 
-size = 16
+size = 1024
 
 # server's listener socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 

@@ -15,7 +15,7 @@ import sys
 
 host = 'localhost' 
 port = 50002 # different default port than echo, both can run on same server
-size = 16
+size = 1024
 
 nargs = len(sys.argv)
 if nargs > 1:
