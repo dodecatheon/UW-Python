@@ -32,8 +32,8 @@ while True:
     if msg:         # msg is not empty
         s.send(msg) 
         data = s.recv(size)
-        receive_string = data.split(': ')[1]
         print data
+        receive_string = data.split(': ')[1]
         print "send matches receive =", msg == receive_string
     else:          # msg is empty
         print "msg is empty, close and exit ..."
