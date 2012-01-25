@@ -63,7 +63,7 @@ while running:
             data = s.recv(size)
             print '%s: %s' % (s.getpeername(), data.strip('\n'))
             if data:
-                s.send('uw-student: %s' % data)
+                s.send('dodecatheon: %s' % data)
             else:
                 s.close()
                 print 'closed connection'
