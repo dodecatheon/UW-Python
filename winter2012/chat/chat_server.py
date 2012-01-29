@@ -35,6 +35,7 @@ server.bind((host,port))
 print 'echo_server listening on port %s, to exit type return ' % port
 server.listen(backlog)
 
+# Add a list to store clients:
 timeout = 10 # seconds
 input = [server,sys.stdin]
 running = True
@@ -61,9 +62,16 @@ while running:
 
         elif s: # client socket
             data = s.recv(size)
-            print '%s: %s' % (s.getpeername(), data.strip('\n'))
+
+            # Add this line, to keep track of sender:
+            sender = s.getpeername()
+            print '%s: %s' % (sender, data.strip('\n'))
             if data:
-                s.send('dodecatheon: %s' % data)
+                # Replace old reply just to sender with
+                # a broadcast to all clients:
+                for c in input[2:]:
+                    if c != s:
+                        c.send('\ndodecatheon: %s> %s\nYou> ' % (sender, data.strip()))
             else:
                 s.close()
                 print 'closed connection'
