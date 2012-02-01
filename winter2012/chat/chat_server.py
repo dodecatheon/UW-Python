@@ -36,7 +36,7 @@ print 'echo_server listening on port %s, to exit type return ' % port
 server.listen(backlog)
 
 # Add a list to store clients:
-timeout = 10 # seconds
+timeout = 60 # seconds
 input = [server,sys.stdin]
 running = True
 while running:

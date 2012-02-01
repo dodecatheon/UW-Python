@@ -28,7 +28,7 @@ if nargs > 2:
 client = socket.socket(socket.AF_INET, 
                        socket.SOCK_STREAM) 
 client.connect((host,port)) 
-print 'Connection accepted by (%s,%s)\nYou> ' % (host, port),
+print 'Connection accepted by (%s,%s)\nYou> ' % (host, port)
 inputs = [client, sys.stdin]
 running = True
 timeout = 10
