@@ -16,18 +16,20 @@
 #
 
 import os, socket, sys
+from subprocess import Popen, PIPE
+import print_time
 
-defaults = ['127.0.0.1', '8080']
+defaults = ['0.0.0.0', '8080']
 mime_types = {'.jpg' : 'image/jpg', 
-             '.gif' : 'image/gif', 
-             '.png' : 'image/png',
-             '.html' : 'text/html', 
-             '.pdf' : 'application/pdf'}
+              '.gif' : 'image/gif', 
+              '.png' : 'image/png',
+              '.html': 'text/html',
+              '.pdf' : 'application/pdf'}
 response = {}
 
 response[200] =\
 """HTTP/1.0 200 Okay
-Server: ws30
+Server: dodecatheon ws30
 Content-type: %s
 
 %s
@@ -35,7 +37,7 @@ Content-type: %s
 
 response[301] =\
 """HTTP/1.0 301 Moved
-Server: ws30
+Server: dodecatheon ws30
 Content-type: text/plain
 Location: %s
 
@@ -44,7 +46,7 @@ moved
 
 response[404] =\
 """HTTP/1.0 404 Not Found
-Server: ws30
+Server: dodecatheon ws30
 Content-type: text/plain
 
 %s not found
@@ -96,12 +98,25 @@ def get_file(path):
     finally: 
         f.close()
 
+def run_python(path):
+    output, error = Popen(['/usr/bin/python', path],
+                          stdout=PIPE).communicate()
+    return output
+
 def get_content(uri):
     print 'fetching:', uri
     try:
         path = '.' + uri
+        if uri == '/date.html':
+            return (200, 'text/plain', print_time.date_time())
+        
         if os.path.isfile(path):
-            return (200, get_mime(uri), get_file(path))
+            # New stuff to check whether we're trying to run a python file
+            if path.endswith('.py'):
+                return (200, 'text/plain', run_python(path))
+            else:
+                return (200, get_mime(uri), get_file(path))
+            
         if os.path.isdir(path):
             if(uri.endswith('/')):
                 return (200, 'text/html', list_directory(uri))
