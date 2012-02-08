@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 github-api.py
 
@@ -19,7 +20,7 @@ data = json.load(handle)
 
 pprint(data) # show all the data for all the repos
 print        # leave some space
-print 
+print
 
 # We see data is a big dictionary with one key, u'repositories'
 # whose value is a list of dictionaries, one for each repo
@@ -27,4 +28,3 @@ print
 
 names = [ r[u'name'] for r in data[u'repositories'] ]
 pprint(names)
-
