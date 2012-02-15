@@ -3,7 +3,7 @@ apache_howto.txt
 
 Configure Apache on your BlueBox VM to run CGI and WSGI applications
 
-Based on Brian Dorsey's notes, 
+Based on Brian Dorsey's notes,
 http://briandorsey.info/uwpython/week05/week05_slides.pdf
 slides 38-49 on CGI and 104-110 on WSGI
 
@@ -13,7 +13,7 @@ Nginx or Apache
 In browser, go to your vm:
 
  http://block3350nn-xxx.blueboxgrid.com/
- 
+
 Welcome to nginx! (Nginx)
 
 -or=
@@ -27,14 +27,14 @@ $ ps ax
 18291 ?        Ss     0:00 nginx: master process /usr/sbin/nginx
 ...
 
-$ sudo kill -QUIT 18291  # use the nginx PID 
+$ sudo kill -QUIT 18291  # use the nginx PID
 
 Then start apache
 
-$ /usr/sbin/apachectl configtest
+$ /usr/sbin/apache2ctl configtest
 Syntax OK
 
-$ sudo /usr/sbin/apachectl start
+$ sudo /usr/sbin/apache2ctl start
 $ ps ax
 ... several apache2 processes
 
@@ -56,7 +56,7 @@ To run CGI scripts
 Put cgi scripts cgi_test.py and echo_cgi.py in /usr/lib/cgi-bin
 Put echo_cgi.html in /var/www.
 
-Look in /etc/apache2/sites/available/default  , confirm it contains this, if not, edit.
+Look in /etc/apache2/sites-available/default  , confirm it contains this, if not, edit.
 
 <VirtualHost *:80>
    ServerAdmin webmaster@localhost
@@ -82,7 +82,7 @@ ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
 
 After edit, must restart apache
 
-$ sudo /usr/sbin/apachectl start
+$ sudo /usr/sbin/apache2ctl restart
 
 
 To prepare to run WSGI scripts

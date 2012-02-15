@@ -31,7 +31,7 @@ def soup_find_urls(page_url, prefix, suffix):
     """
     return list of URLs (strings) that begin with prefix, end with suffix
     found in anchor tags in page at page_url
-    set prefix or suffix to '' to accept any 
+    set prefix or suffix to '' to accept any
     """
     contents = urllib2.urlopen(page_url).read()
     soup = BeautifulSoup(contents)
@@ -56,7 +56,7 @@ def url_download_many(nfiles, siteurl, urls):
     Download files from each url in urls (list of strings)
     If url is relative, download it from siteurl (string)
     Save file in current default directory, use same file basename but omit subdirs path
-    Download no more than nfiles, even if urls list is longer 
+    Download no more than nfiles, even if urls list is longer
     Return number of files downloaded
     """
     surl = urlparse.urlparse(siteurl)
@@ -81,7 +81,7 @@ def github_find_blobs(blobs_url, prefix, suffix):
     """
     return dictionary of blob name:sha where name begins with prefix, end with suffix
     found in the blobs retrieved by blobs_url (a string), using github v2 api
-    set prefix or suffix to '' to accept any 
+    set prefix or suffix to '' to accept any
     """
     handle = urllib2.urlopen(blobs_url)
     data = json.load(handle)
@@ -179,9 +179,9 @@ def webclient2(nfiles):
 if __name__ == '__main__':
     #
     # uncomment just one line below, each is a separate program or test
-    # 
+    #
     # scrape(course_url) # lab assignment
     # test_download()
     # webclient1(3) # use soup, just download the first three .py files
-    webclient2(3) # use github api
-    # pass # uncomment this to work interactively after python -i download.py
+    # webclient2(3) # use github api
+    pass # uncomment this to work interactively after python -i download.py
