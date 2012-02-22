@@ -20,9 +20,9 @@ app.debug = True # development only - remove on production machines
 
 # View functions generate HTTP responses including HTML pages and headers
 
-@app.route('/books.html')
-def form():
-    return render_template('form.html')
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/books.py')
 def message_page():
