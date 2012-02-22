@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Demonstrate Flask test support: test without server
 """
@@ -29,9 +30,9 @@ r = tc.get('/echo_flask.py?message=Hello')
 print r
 print r.headers
 print r.data
-print 
+print
 print
 
 # This will fail if application isn't working
-#assert 'Hello' in r.data  # demonstrate success
+assert 'Hello' in r.data  # demonstrate success
 assert 'Goodbye' in r.data # demonstrate failure

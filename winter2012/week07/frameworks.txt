@@ -13,15 +13,15 @@ Web application frameworks - history, motivation
 
 Web application frameworks - what are they?
 
-  Frameworks ddd no magic, no new mechanisms beyond familiar HTTP, URLs, ...
+  Frameworks do no magic, no new mechanisms beyond familiar HTTP, URLs, ...
   Merely add convenient, specialized alternatives to standard Python libraries
    (or separate libraries in PyPI etc.)
   Useful to compare standard Python/library way to framework alternative
   Framework alternatives are optional, can always use standard Python instead
   For small number of hand-crafted pages, maybe more trouble than they're worth
- 
 
-+-- 
+
++--
 
 Web Application frameworks - features
 
@@ -30,7 +30,7 @@ Web Application frameworks - features
   Testing
   ORM - Object-Relational Mapper
   Components
-  
+
 
 +--
 
@@ -46,7 +46,7 @@ Web Application frameworks - features
 
  Framework features - Templates
 
- HTML Templates: define reusable page layouts with placeholders to fill in 
+ HTML Templates: define reusable page layouts with placeholders to fill in
   Standard: string formatting with triple-quoted text block format strings
   Framework: placeholders are variable names (not just %s with position)
    (BUT Python also has string format with dictionary instead of position)
@@ -66,7 +66,7 @@ Web Application frameworks - features
 
 +--
 
- Framework features - ORM 
+ Framework features - ORM
 
  ORM: Object-Relational Mapper layer over database
   Standard: no extra layer, program in database library: sqlite, pyscopg, ...
@@ -79,7 +79,3 @@ Web Application frameworks - features
  Components for authentication (login), sessions (cookies), administration ...
   Standard: WSGI middleware, libraries, DIY, ...
   Framework: suite of matched components included, one-stop shopping
-
-
-
-

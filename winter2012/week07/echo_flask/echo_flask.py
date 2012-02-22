@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Minimal Flask + forms demo
 
@@ -32,4 +33,3 @@ def message_page():
 
 if __name__ == '__main__':
     app.run()
-

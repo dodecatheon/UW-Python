@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Minimal Flask + forms demo
 
@@ -33,14 +34,19 @@ app.debug = True # development only - remove on production machines
 def form():
     return form_page
 
+messages = []
+
 @app.route('/echo_flask.py')
 def message_page():
+    global messages
     # Flask Quickstart suggests request.form should work, but here it is empty
     # Flask converts return string to HTML page
-    return 'Message: %s' % request.args['message']
+    messages.append('Message %d: %s' % (
+        len(messages)+1,
+        request.args['message']))
+    return '<br>\n'.join(messages)
 
 # No function needed for other routes - Flask will send 404 page
 
 if __name__ == '__main__':
     app.run()
-
