@@ -1,11 +1,27 @@
 books.txt
 +--
 
-Week 7 Assignment: Books web site 
+Week 7 Assignment: Books web site
 
-- Write a multi page website, using bookdb.py 
+- Write a multi page website, using bookdb.py
 - Index page is a list of books, link to a detail page per book
 - Each detail page displays info about one book
 - Use any Python tech you’d like
 
 (from Brian Dorsey's Internet Programming in Python, Winter 2011)
+
+Hints:
+
+Figure out how to pass variables to templates and how to display variables in
+templates (using jinja2).
+
+See quickstart flask docs for basic info about templates, but will have to
+read in a little more detail on how to deal with lists of stuff.
+
+This is going to require understanding the jinja2 control language,
+specifically the looping construct.
+
+Then we're most of the way through.  At that point, missing only a way to pass
+a link from one page to the other.  Use persistence, get a handler that can
+deal with info about any id, then can pass to any template.  Squint at the
+quickstart, there should be enough info in there.
