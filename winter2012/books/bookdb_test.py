@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 From Brian Dorsey's Internet Programming in Python, Winter 2011
 """
