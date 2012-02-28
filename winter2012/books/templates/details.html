@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!-- I've been using this html template form in Emacs since the mid-'90s ... -->
+<html> <head>
+<title>Detailed Info about Book</title>
+</head>
+<body>
+<h1>Detailed info about book</h1>
+{% if book_info %}
+    <table>
+        <tr>
+        {% for key in book_info %}
+            <td>{{ key }}:</td>
+            <td>{{ book_info[key] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+<hr>
+<address>dodecatheon at gmail dot com</address>
+<!-- hhmts start -->
+Last modified: Mon Feb 27 22:56:31 PST 2012
+<!-- hhmts end -->
+</body> </html>

@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 """
-Minimal Flask + forms demo
-
-Send HTML page that echoes message from HTTP request
-To get started, point browser at books.html
+Converting minimal Flask + forms demo into books website assignment.
+- Write a multi page website, using bookdb.py
+- Index page is a list of books, link to a detail page per book
+- Each detail page displays info about one book
 """
 
 from flask import Flask, render_template, request
@@ -20,17 +20,23 @@ app.debug = True # development only - remove on production machines
 
 # View functions generate HTTP responses including HTML pages and headers
 
+# Let's make the top level directory return the index
 @app.route('/')
+@app.route('/books.html')               # And handle books.html also
 def index():
-    return render_template('index.html')
+    return render_template('index.html', titles=titles)
 
-@app.route('/books.py')
-def message_page():
-    # Flask Quickstart suggests request.form should work, but here it is empty
-    # Flask converts return string to HTML page
-    return 'Message: %s' % request.args['message']
+@app.route('/book_details.py')
+def book_details_page():
+    book_id = request.args['id']
+    book_info = books.title_info(book_id)
+    return render_template('details.html', book_info=book_info)
 
 # No function needed for other routes - Flask will send 404 page
 
 if __name__ == '__main__':
-    app.run()
+    books = bookdb.BookDB()            # Persistence of books
+    titles = books.titles()           # Persistence of titles
+    # For localhost only:  app.run()
+    # For all hosts
+    app.run(host='0.0.0.0')

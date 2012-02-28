@@ -1,10 +1,16 @@
-<!--  This template is really just a static HTML page -->
-<title>Echo request</title>
+<head>
+<title>Book titles</title>
 </head>
 <body>
-<form method="GET" action="echo_flask.py">
-Message: <input type="text" name="message" size="40">
-<input type="submit" value="Submit">
-</form>
+<h1>Book titles:</h2>
+{% if titles %}
+    {% block body %}
+    <ul>
+    {% for title in titles %}
+        <li><a href="book_details.py?id={{ title.id }}">{{ title.title }}</a></li>
+    {% endfor %}
+    </ul>
+    {% endblock %}
+{% endif %}
 </body>
 </html>
